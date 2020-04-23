@@ -1,3 +1,9 @@
+{% extends 'base.html' %}
+
+{%block title%} URL Shortener {% endblock %}
+
+{% block main %}
+
 <h1> URL Shortener </h1>
 
 {% for message in get_flashed_messages()%}
@@ -29,7 +35,10 @@
 <h2> Codes you have created </h2>
 <ul>
 {%for code in codes%}
+    <a href="{{url_for('redirect_to_url', code =code)}}"
     <li> {{code}} </li>
     {%endfor%}
 </ul>
 {% endif %}
+
+{% endblock main %}
